@@ -1,13 +1,17 @@
+import { useContext } from 'react'
 import useSWR from 'swr'
-import { useStore } from '@nanostores/react'
-import { setUsers, getAllUsers } from '@/db/datascript/users'
-import { $users } from '@/stores/users/users.state'
+// import { setUsers, getAllUsers } from '@/db/datascript/users'
+// import { $users } from '@/stores/users/users.state'
 import { fetcher } from '@/utils/fetch'
 import { User } from '@/db/datascript/users.types'
+import { DB_ACTION_TYPES } from '@/stores/db/action'
+import { DbContext } from '@/stores/db/context'
 
 export const useDatascriptUser = () => {
+  const { state, dispatch } = useContext(DbContext)
+
   /** ユーザー一覧 */
-  const users = useStore($users)
+  const users = state.users
 
   /**
    * ユーザー一覧を取得
@@ -15,12 +19,10 @@ export const useDatascriptUser = () => {
   const fetchUsers = () => {
     useSWR<User[]>('https://jsonplaceholder.typicode.com/users', fetcher, {
       onSuccess: (data) => {
-        // Datascriptにデータをセット
-        setUsers(data)
-        // DatascriptからUsersを取得
-        const users = getAllUsers()
-        // NanostoreにUsersをセット
-        $users.set(users)
+        dispatch({ type: DB_ACTION_TYPES.UPDATE_USERS, payload: data })
+        // setUsers(data) // Datascriptにデータをセット
+        // const users = getAllUsers() // DatascriptからUsersを取得
+        // $users.set(users) // NanostoreにUsersをセット
       },
     })
   }
