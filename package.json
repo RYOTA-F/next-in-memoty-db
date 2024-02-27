@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "nedb": "ts-node ./src/app/db/nedb/nedb.ts"
+    "nedb": "ts-node ./src/db/nedb/nedb.ts"
   },
   "dependencies": {
     "@nanostores/react": "^0.7.2",
