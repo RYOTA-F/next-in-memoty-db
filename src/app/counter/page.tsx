@@ -1,7 +1,7 @@
 'use client'
 
 import { useStore } from '@nanostores/react'
-import { $counter } from '@/app/stores/counter/counter.state'
+import { $counter } from '@/stores/counter/counter.state'
 
 export default function CounterPage() {
   const count = useStore($counter)
