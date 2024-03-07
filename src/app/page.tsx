@@ -10,6 +10,9 @@ export default function Home() {
         <div>
           <Link href="/swr">SWR</Link>
         </div>
+        <div>
+          <Link href="/datascript">Datascript</Link>
+        </div>
       </div>
     </main>
   )
