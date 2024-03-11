@@ -30,10 +30,15 @@ export const addTodo = (action: AddTodoAction) => {
  * Todo一覧を取得
  */
 export const getTodos = () => {
-  const query = `[:find ?e ?uniqueId ?text ?completed
-    :where [?e "uniqueId" ?uniqueId]
-           [?e "text" ?text]
-           [?e "completed" ?completed]]`
+  const query = `
+    [
+      :find ?e ?uniqueId ?text ?completed
+      :where
+        [?e "uniqueId" ?uniqueId]
+        [?e "text" ?text]
+        [?e "completed" ?completed]
+    ]
+  `
 
   return ds.q(query, db.current)
 }
