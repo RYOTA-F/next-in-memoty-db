@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 import type { AddTodoAction, TodoTuple } from './todo.types'
 
 const transact = ds.db_with
-const db = { current: ds.empty_db() }
+const db = { todo: ds.empty_db() }
 
 /**
  * Todoを追加
@@ -15,8 +15,8 @@ export const addTodo = (action: AddTodoAction) => {
     completed: false,
   }
 
-  db.current = transact(db.current, [transaction])
-  return db.current
+  db.todo = transact(db.todo, [transaction])
+  return db.todo
 }
 
 /**
@@ -33,7 +33,7 @@ export const getTodos = () => {
     ]
   `
 
-  const res = ds.q(query, db.current)
+  const res = ds.q(query, db.todo)
 
   return res.map(([id, text, completed]: TodoTuple) => ({
     id,
