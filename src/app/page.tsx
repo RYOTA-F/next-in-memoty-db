@@ -11,7 +11,7 @@ export default function Home() {
           <Link href="/swr">SWR</Link>
         </div>
         <div>
-          <Link href="/datascript">Datascript</Link>
+          <Link href="/datascript/todos">Datascript Todos</Link>
         </div>
       </div>
     </>

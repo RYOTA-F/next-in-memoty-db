@@ -2,7 +2,7 @@
 
 import { addTodo, getTodos } from '@/db/datascript/todo'
 
-export default function UseDatascriptPage() {
+export default function DatascriptTodoPage() {
   const onClickGet = () => {
     return console.log(getTodos())
   }
