@@ -16,6 +16,9 @@ export default function Home() {
         <div>
           <Link href="/datascript/users">Datascript Users</Link>
         </div>
+        <div>
+          <Link href="/rxdb/users">RxDB Users</Link>
+        </div>
       </div>
     </>
   )

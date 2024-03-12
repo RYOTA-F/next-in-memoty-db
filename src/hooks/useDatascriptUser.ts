@@ -5,7 +5,7 @@ import { $users } from '@/stores/users/users.state'
 import { fetcher } from '@/utils/fetch'
 import { User } from '@/db/datascript/users.types'
 
-export const useUser = () => {
+export const useDatascriptUser = () => {
   /** ユーザー一覧 */
   const users = useStore($users)
 

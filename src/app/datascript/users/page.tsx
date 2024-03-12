@@ -1,12 +1,12 @@
 'use client'
 
-import { useUser } from '@/hooks/useUser'
+import { useDatascriptUser } from '@/hooks/useDatascriptUser'
 
-export default function DatascriptTodoPage() {
-  const { users, fetchUsers } = useUser()
+export default function DatascriptUserPage() {
+  const { users, fetchUsers } = useDatascriptUser()
   fetchUsers()
 
-  if (!users.length) return <>None users...</>
+  if (!users.length) return <>None users</>
 
   return (
     <>
