@@ -3,7 +3,7 @@
 import { useTest } from '@/hooks/useTest'
 
 export default function UseSwrPage() {
-  const { data, error, isLoading } = useTest()
+  const { data } = useTest()
 
   return (
     <div>

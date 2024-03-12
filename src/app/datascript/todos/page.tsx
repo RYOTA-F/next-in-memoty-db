@@ -1,6 +1,6 @@
 'use client'
 
-import { addTodo, getTodos } from '@/db/datascript/todo'
+import { addTodo, getTodos } from '@/db/datascript/todos'
 
 export default function DatascriptTodoPage() {
   const onClickGet = () => {

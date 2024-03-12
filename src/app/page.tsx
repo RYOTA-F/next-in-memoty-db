@@ -13,6 +13,9 @@ export default function Home() {
         <div>
           <Link href="/datascript/todos">Datascript Todos</Link>
         </div>
+        <div>
+          <Link href="/datascript/users">Datascript Users</Link>
+        </div>
       </div>
     </>
   )
