@@ -1,20 +1,12 @@
 'use client'
 
-import { useDatascriptUser } from '@/hooks/useDatascriptUser'
+import { DbContextProvider } from '@/stores/db/context'
+import { DbUsersComponent } from './components/dbUser'
 
 export default function DatascriptUserPage() {
-  const { users, fetchUsers } = useDatascriptUser()
-  fetchUsers()
-
-  if (!users.length) return <>None users</>
-
   return (
-    <>
-      <div>
-        {users.map((user) => (
-          <div key={user.id}>{user.name}</div>
-        ))}
-      </div>
-    </>
+    <DbContextProvider>
+      <DbUsersComponent />
+    </DbContextProvider>
   )
 }
