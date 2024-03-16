@@ -1,7 +1,10 @@
 'use client'
 
-// import { useUser } from '@/hooks/useDatascriptUser'
+import { useRxdbUser } from '@/hooks/useRxdbUser'
 
 export default function RxdbUserPage() {
+  const { fetchUsers } = useRxdbUser()
+  fetchUsers()
+
   return <>RxdbUserPage</>
 }
