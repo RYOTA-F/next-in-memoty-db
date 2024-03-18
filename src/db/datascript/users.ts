@@ -31,19 +31,18 @@ export const getAllUsers = () => {
     ]
   `
 
-  const res = ds.q(query, db.users)
+  const res: UserTuple[] = ds.q(query, db.users)
+  const users = convertUsers(res)
 
-  const users = res.map(
-    ([
-      id,
-      name,
-      username,
-      email,
-      address,
-      phone,
-      website,
-      company,
-    ]: UserTuple) => ({
+  return users.sort((a, b) => a.id - b.id)
+}
+
+/**
+ * ユーザーデータ一覧に変換
+ */
+const convertUsers = (dataFromDs: UserTuple[]): User[] => {
+  return dataFromDs.map(
+    ([id, name, username, email, address, phone, website, company]) => ({
       id,
       name,
       username,
@@ -54,6 +53,4 @@ export const getAllUsers = () => {
       company,
     }),
   ) as User[]
-
-  return users.sort((a, b) => a.id - b.id)
 }
